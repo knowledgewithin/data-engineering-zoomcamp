@@ -8,11 +8,24 @@ terraform apply
 *with some copy-pastes of project id when necessary
 
 Question 3:
-select count(1) from yellow_taxi_data;
+select count(1)
+from yellow_taxi_data
+where DATE(tpep_pickup_datetime) = '2021-01-15';
 
 Question 4:
-Question 5:
+select tpep_pickup_datetime, tip_amount
+from yellow_taxi_data
+where DATE(tpep_pickup_datetime) < '2021-01-31' AND
+	DATE(tpep_pickup_datetime) > '2021-01-01'
+ORDER BY 2 DESC;
 
+Question 5:
+select "DOLocationID", count(1)
+from yellow_taxi_data
+where "PULocationID" = 43 and
+	DATE(tpep_pickup_datetime) = '2021-01-14'
+group by 1
+order by 2 desc;
 
 Question 6:
 select CONCAT("PULocationID", '/', "DOLocationID"), AVG(total_amount)
