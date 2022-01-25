@@ -1,0 +1,23 @@
+Question 1: 
+gcloud -v
+
+Question 2:
+terraform init
+terraform plan
+terraform apply
+*with some copy-pastes of project id when necessary
+
+Question 3:
+select count(1) from yellow_taxi_data;
+
+Question 4:
+Question 5:
+
+
+Question 6:
+select CONCAT("PULocationID", '/', "DOLocationID"), AVG(total_amount)
+from yellow_taxi_data
+where DATE(tpep_pickup_datetime) > '2021-01-01' and
+	DATE(tpep_pickup_datetime) <= '2021-01-31'
+group by 1
+order by 2 desc;
